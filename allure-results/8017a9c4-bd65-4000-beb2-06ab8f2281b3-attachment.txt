@@ -1,0 +1,4 @@
+from balance before: 100
+to balance before: 100
+from balance after: 0
+to balance after: 200

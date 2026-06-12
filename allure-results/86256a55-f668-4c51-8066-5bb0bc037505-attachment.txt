@@ -1,0 +1,2 @@
+balance before: 100
+balance after: 0

@@ -1,0 +1,23 @@
+{
+  "registerUser": {
+    "url": "https://parabank.parasoft.com/parabank/index.htm",
+    "firstName": "Aaradhya",
+    "lastName": "Singh",
+    "street": "Jaipur",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "zipCode": "302033",
+    "phoneNumber": "9784365061",
+    "ssn": "123456",
+    "password": "A-Aru1807"
+  },
+  "invalidUser": {
+    "password": "Test@123",
+    "confirmPassword": "Test@999",
+    "duplicateUsername": "john"
+  },
+  "loginUser": {
+    "username": "Aaru1781259441534",
+    "password": "A-Aru1807"
+  }
+}
