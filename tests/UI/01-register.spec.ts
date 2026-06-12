@@ -18,7 +18,7 @@ test.describe('TS-01 New User Registration with Valid Data', () => {
         // });
     });
 
-    test('Verify Auto-Login & Welcome After Registration', async ({ page }) => {
+    test('Verify Login and Welcome After Registration', async ({ page }) => {
         const registerPage = new RegisterPage(page);
         const uniqueUsername = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
