@@ -3,7 +3,7 @@ import userData from '../../test-data/User.json';
 
 test.describe('TS-02 Registration Validation & Duplicate User', () => {
 
-    test('Mandatory Fields Empty', async ({ page }) => {
+    test('Registration-Required Fields Left Empty', async ({ page }) => {
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
         await page.getByRole('button', { name: 'Register' }).click();
@@ -18,7 +18,7 @@ test.describe('TS-02 Registration Validation & Duplicate User', () => {
         // });
     });
 
-    test('Password Mismatch', async ({ page }) => {
+    test('Registration-Password and Confirm Don\'t Match', async ({ page }) => {
         const username = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
@@ -43,7 +43,7 @@ test.describe('TS-02 Registration Validation & Duplicate User', () => {
         // });
     });
 
-    test('Duplicate Username Rejected', async ({ page }) => {
+    test('Registration-Already Used Username is Rejected', async ({ page }) => {
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
         await page.locator('#customer\\.firstName').fill(userData.registerUser.firstName);

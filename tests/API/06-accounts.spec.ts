@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-05 Account Exists in API After UI Creation', () => {
+test.describe('TS-04 Account Exists in API After UI Creation', () => {
 
-    test('GET Accounts', async ({ page }) => {
+    test('GET Accounts-HTTP 200 OK', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const overviewPage = new AccountOverviewPage(page);
         await loginPage.loginOrRegister(userData);
@@ -26,12 +26,12 @@ test.describe('TS-05 Account Exists in API After UI Creation', () => {
         expect(accounts.length).toBeGreaterThan(0);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-05-test1.png`,
+        //     path: `screenshots/ts-04-test1.png`,
         //     fullPage: true
         // });
     });
 
-    test('New Account ID Present in API Response', async ({ page }) => {
+    test('New Account ID is Present in API Response', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -51,16 +51,16 @@ test.describe('TS-05 Account Exists in API After UI Creation', () => {
         expect(responseBody).toContain(newAccountId);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-05-test2.png`,
+        //     path: `screenshots/ts-04-test2.png`,
         //     fullPage: true
         // });
     });
 
 });
 
-test.describe('TS-06 Account Type & Detail Validation via API', () => {
+test.describe('TS-05 Account Type & Detail Validation via API', () => {
 
-    test('Validate Account Type Field in API Response', async ({ page }) => {
+    test('Check the Account Type Field in API Response', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -77,12 +77,12 @@ test.describe('TS-06 Account Type & Detail Validation via API', () => {
         expect(accountData.type).not.toBeNull();
 
         // await page.screenshot({
-        //     path: `screenshots/ts-06-test1.png`,
+        //     path: `screenshots/ts-05-test1.png`,
         //     fullPage: true
         // });
     });
 
-    test('Validate Balance is Numeric and Non-Negative', async ({ page }) => {
+    test('Check Balance is a Number and Not Negative', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -99,7 +99,7 @@ test.describe('TS-06 Account Type & Detail Validation via API', () => {
         expect(accountData.balance).toBeGreaterThanOrEqual(0);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-06-test2.png`,
+        //     path: `screenshots/ts-05-test2.png`,
         //     fullPage: true
         // });
     });

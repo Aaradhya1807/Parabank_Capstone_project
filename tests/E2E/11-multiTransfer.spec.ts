@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-14 Multi-Account Fund Transfer Consistency', () => {
+test.describe('TS-11 Multi-Account Fund Transfer Consistency', () => {
 
-    test('Sequential Transfers – API Balances Stay Consistent', async ({ page }) => {
+    test('Many Transfers in a Row-API Balances Stay Correct', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -61,7 +61,7 @@ test.describe('TS-14 Multi-Account Fund Transfer Consistency', () => {
         expect(balanceCAfter - balanceCBefore).toBe(50);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-14-test1.png`,
+        //     path: `screenshots/ts-11-test1.png`,
         //     fullPage: true
         // });
     });

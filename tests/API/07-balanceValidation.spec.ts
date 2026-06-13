@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-09 Balance Validation Before and After Transfer', () => {
+test.describe('TS-07 Balance Validation Before and After Transfer', () => {
 
-    test('Validate Source Account Debited After Transfer', async ({ page }) => {
+    test('Check Source Account is Debited After Transfer', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -40,7 +40,7 @@ test.describe('TS-09 Balance Validation Before and After Transfer', () => {
         expect(balanceAfter).toBe(balanceBefore - 100);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-09-test1.png`,
+        //     path: `screenshots/ts-07-test1.png`,
         //     fullPage: true
         // });
     });

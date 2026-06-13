@@ -5,9 +5,9 @@ import { LoginPage } from '../../POM/LoginPage';
 import { AccountOverviewPage } from '../../POM/AccountOverviewPage';
 import userData from '../../test-data/User.json';
 
-test.describe('TS-08 Successful Fund Transfer via UI', () => {
+test.describe('TS-06 Successful Fund Transfer via UI', () => {
 
-    test('Fund Transfer – Valid Amount Between Two Accounts', async ({ page }) => {
+    test('Transfer Money-Valid Amount Between Two Accounts', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -29,12 +29,12 @@ test.describe('TS-08 Successful Fund Transfer via UI', () => {
         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
 
         // await page.screenshot({
-        //     path: `screenshots/ts-08-test1.png`,
+        //     path: `screenshots/ts-06-test1.png`,
         //     fullPage: true
         // });
     });
 
-    test('Transfer UI Confirmation Shows Correct Details', async ({ page }) => {
+    test('Transfer Confirmation Page Shows Correct Details', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -58,7 +58,7 @@ test.describe('TS-08 Successful Fund Transfer via UI', () => {
         await expect(page.locator('#rightPanel')).toContainText(toAccountId);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-08-test2.png`,
+        //     path: `screenshots/ts-06-test2.png`,
         //     fullPage: true
         // });
     });

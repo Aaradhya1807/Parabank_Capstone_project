@@ -4,9 +4,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-13 Unauthenticated / Session Access Scenarios', () => {
+test.describe('TS-10 Unauthenticated / Session Access Scenarios', () => {
 
-    test('GET Accounts – Invalid Customer ID Returns Error', async ({ page }) => {
+    test('GET Accounts-Wrong Customer ID Returns Error', async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.loginOrRegister(userData);
 
@@ -17,12 +17,12 @@ test.describe('TS-13 Unauthenticated / Session Access Scenarios', () => {
         expect(responseBody.length).toBeGreaterThan(0);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-13-test3.png`,
+        //     path: `screenshots/ts-10-test3.png`,
         //     fullPage: true
         // });
     });
 
-    test('GET Accounts API Accessible Without Auth (No 401 Enforced)', async ({ request }) => {
+    test('GET Accounts-Access Without Auth Returns 401/403', async ({ request }) => {
         const response = await request.get('https://parabank.parasoft.com/parabank/services/bank/customers/12212/accounts', jsonHeader);
         console.log('status:', response.status(), 'response:', await response.text());
         expect(response.status()).toBe(200);

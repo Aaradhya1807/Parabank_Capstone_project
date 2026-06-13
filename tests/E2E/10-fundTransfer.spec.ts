@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-10 Transfer Amount Correctness (Debit = Credit)', () => {
+test.describe('TS-08 Transfer Amount Correctness (Debit = Credit)', () => {
 
-    test('Transfer Debit Equals Credit (No Leakage)', async ({ page }) => {
+    test('Transfer Debit Equals Credit (No Money Lost)', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -51,7 +51,7 @@ test.describe('TS-10 Transfer Amount Correctness (Debit = Credit)', () => {
         expect(moneyTaken).toBe(moneyAdded);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-10-test1.png`,
+        //     path: `screenshots/ts-08-test1.png`,
         //     fullPage: true
         // });
     });

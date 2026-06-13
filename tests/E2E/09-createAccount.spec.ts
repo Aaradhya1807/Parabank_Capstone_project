@@ -5,9 +5,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-12 Create Account via UI → Validate via API', () => {
+test.describe('TS-09 Create Account via UI → Validate via API', () => {
 
-    test('Create Account via UI → Validate Type & Balance in API', async ({ page }) => {
+    test('Create Account from UI-Check Type and Balance in API', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -27,7 +27,7 @@ test.describe('TS-12 Create Account via UI → Validate via API', () => {
         expect(String(accountData.id)).toBe(newAccountId);
 
         // await page.screenshot({
-        //     path: `screenshots/ts-12-test1.png`,
+        //     path: `screenshots/ts-09-test1.png`,
         //     fullPage: true
         // });
     });

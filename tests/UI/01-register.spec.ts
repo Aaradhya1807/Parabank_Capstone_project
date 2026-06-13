@@ -4,7 +4,7 @@ import userData from '../../test-data/User.json';
 
 test.describe('TS-01 New User Registration with Valid Data', () => {
 
-    test('Register New User with Valid Data', async ({ page }) => {
+    test('Register a New User with Valid Data', async ({ page }) => {
         const registerPage = new RegisterPage(page);
         const uniqueUsername = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
@@ -18,7 +18,7 @@ test.describe('TS-01 New User Registration with Valid Data', () => {
         // });
     });
 
-    test('Verify Login and Welcome After Registration', async ({ page }) => {
+    test('Check Auto-Login and Welcome After Registration', async ({ page }) => {
         const registerPage = new RegisterPage(page);
         const uniqueUsername = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
