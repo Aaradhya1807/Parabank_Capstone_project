@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-04 Account Exists in API After UI Creation', () => {
+test.describe('TS-04 Account API Verification', () => {
 
-    test('GET Accounts-HTTP 200 OK', async ({ page }) => {
+    test('GET Accounts 200 OK', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const overviewPage = new AccountOverviewPage(page);
         await loginPage.loginOrRegister(userData);
@@ -58,9 +58,9 @@ test.describe('TS-04 Account Exists in API After UI Creation', () => {
 
 });
 
-test.describe('TS-05 Account Type & Detail Validation via API', () => {
+test.describe('TS-05 Account Type Validation', () => {
 
-    test('Check the Account Type Field in API Response', async ({ page }) => {
+    test('Validate Account Type', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -82,7 +82,7 @@ test.describe('TS-05 Account Type & Detail Validation via API', () => {
         // });
     });
 
-    test('Check Balance is a Number and Not Negative', async ({ page }) => {
+    test('Balance Non Negative Check', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);

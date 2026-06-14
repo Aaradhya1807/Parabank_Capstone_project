@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-08 Transfer Amount Correctness (Debit = Credit)', () => {
+test.describe('TS-08 Debit Credit Check', () => {
 
-    test('Transfer Debit Equals Credit (No Money Lost)', async ({ page }) => {
+    test('Debit Equals Credit', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);

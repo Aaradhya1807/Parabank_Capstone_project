@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import userData from '../../test-data/User.json';
 
-test.describe('TS-02 Registration Validation & Duplicate User', () => {
+test.describe('TS-02 Registration Negative Scenarios', () => {
 
-    test('Registration-Required Fields Left Empty', async ({ page }) => {
+    test('Required Fields Empty', async ({ page }) => {
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
         await page.getByRole('button', { name: 'Register' }).click();
@@ -18,7 +18,7 @@ test.describe('TS-02 Registration Validation & Duplicate User', () => {
         // });
     });
 
-    test('Registration-Password and Confirm Don\'t Match', async ({ page }) => {
+    test('Password Mismatch Check', async ({ page }) => {
         const username = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
@@ -43,7 +43,7 @@ test.describe('TS-02 Registration Validation & Duplicate User', () => {
         // });
     });
 
-    test('Registration-Already Used Username is Rejected', async ({ page }) => {
+    test('Duplicate Username Rejected', async ({ page }) => {
         await page.goto(userData.registerUser.url);
         await page.getByRole('link', { name: 'Register' }).click();
         await page.locator('#customer\\.firstName').fill(userData.registerUser.firstName);

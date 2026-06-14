@@ -5,7 +5,7 @@ import userData from '../../test-data/User.json';
 
 test.describe('TS-03 Successful Account Creation', () => {
 
-    test('Create a Savings Account – Valid Data', async ({ page }) => {
+    test('Create Savings Account', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -20,7 +20,7 @@ test.describe('TS-03 Successful Account Creation', () => {
         // });
     });
 
-    test('Create a Checking Account-Valid Data', async ({ page }) => {
+    test('Create Checking Account', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);
@@ -35,7 +35,7 @@ test.describe('TS-03 Successful Account Creation', () => {
         // });
     });
 
-    test('Check the Success Message Content After Account Creation', async ({ page }) => {
+    test('Account Creation Message', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);

@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 import { RegisterPage } from '../../POM/Registerpage';
 import userData from '../../test-data/User.json';
 
-test.describe('TS-01 New User Registration with Valid Data', () => {
+test.describe('TS-01 Valid User Registration', () => {
 
-    test('Register a New User with Valid Data', async ({ page }) => {
+    test('Register New User', async ({ page }) => {
         const registerPage = new RegisterPage(page);
         const uniqueUsername = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);
@@ -18,7 +18,7 @@ test.describe('TS-01 New User Registration with Valid Data', () => {
         // });
     });
 
-    test('Check Auto-Login and Welcome After Registration', async ({ page }) => {
+    test('Auto Login Verification', async ({ page }) => {
         const registerPage = new RegisterPage(page);
         const uniqueUsername = `Aaru${Date.now()}`;
         await page.goto(userData.registerUser.url);

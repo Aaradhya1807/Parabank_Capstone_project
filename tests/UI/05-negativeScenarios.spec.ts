@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import userData from '../../test-data/User.json';
 
-test.describe('TS-10 Unauthenticated / Session Access Scenarios', () => {
+test.describe('TS-10 Session Access Scenarios', () => {
 
-    test('Access Transfer Funds Page Without Login-Session Check', async ({ page }) => {
+    test('Access Without Login', async ({ page }) => {
         await page.goto('https://parabank.parasoft.com/parabank/transfer.htm');
         // ParaBank requires authentication — login form must be visible
         await expect(page.locator('input[name="username"]')).toBeVisible();
@@ -14,7 +14,7 @@ test.describe('TS-10 Unauthenticated / Session Access Scenarios', () => {
         // });
     });
 
-    test('Login with Wrong Credentials', async ({ page }) => {
+    test('Login Wrong Credentials', async ({ page }) => {
         await page.goto(userData.registerUser.url);
         await page.locator('input[name="username"]').fill(`nouser${Date.now()}`);
         await page.locator('input[name="password"]').fill(`nopass${Date.now()}`);

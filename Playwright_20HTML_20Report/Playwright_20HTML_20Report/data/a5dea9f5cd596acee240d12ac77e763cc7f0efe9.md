@@ -1,0 +1,209 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: API\07-balanceValidation.spec.ts >> TS-09 Balance Validation Before and After Transfer >> Validate Source Account Debited After Transfer
+- Location: tests\API\07-balanceValidation.spec.ts:11:9
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 0
+Received: 100
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=e5] [cursor=pointer]
+      - paragraph [ref=e6]: Experience the difference
+    - generic [ref=e7]:
+      - list [ref=e8]:
+        - listitem [ref=e9]: Solutions
+        - listitem [ref=e10]:
+          - link "About Us" [ref=e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=e12]:
+          - link "Services" [ref=e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=e14]:
+          - link "Products" [ref=e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=e16]:
+          - link "Locations" [ref=e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=e18]:
+          - link "Admin Page" [ref=e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=e20]:
+        - listitem [ref=e21]:
+          - link "home" [ref=e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=e23]:
+          - link "about" [ref=e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=e25]:
+          - link "contact" [ref=e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Welcome Aaradhya Singh
+        - heading "Account Services" [level=2] [ref=e30]
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - link "Open New Account" [ref=e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=e34]:
+            - link "Accounts Overview" [ref=e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=e36]:
+            - link "Transfer Funds" [ref=e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=e38]:
+            - link "Bill Pay" [ref=e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=e40]:
+            - link "Find Transactions" [ref=e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=e42]:
+            - link "Update Contact Info" [ref=e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=e44]:
+            - link "Request Loan" [ref=e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=e46]:
+            - link "Log Out" [ref=e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=e50]:
+        - heading "Transfer Funds" [level=1] [ref=e51]
+        - generic [ref=e52]:
+          - paragraph [ref=e53]:
+            - text: "Amount: $"
+            - textbox [ref=e54]: "100"
+          - generic [ref=e55]:
+            - text: "From account #"
+            - combobox [ref=e56]:
+              - option "22224"
+              - option "22335"
+              - option "22446"
+              - option "22557"
+              - option "23001" [selected]
+              - option "23223"
+            - text: "to account #"
+            - combobox [ref=e57]:
+              - option "22224"
+              - option "22335"
+              - option "22446"
+              - option "22557"
+              - option "23001"
+              - option "23223" [selected]
+          - button "Transfer" [active] [ref=e59] [cursor=pointer]
+  - generic [ref=e61]:
+    - list [ref=e62]:
+      - listitem [ref=e63]:
+        - link "Home" [ref=e64] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=e65]:
+        - link "About Us" [ref=e66] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=e67]:
+        - link "Services" [ref=e68] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=e69]:
+        - link "Products" [ref=e70] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=e71]:
+        - link "Locations" [ref=e72] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=e73]:
+        - link "Forum" [ref=e74] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=e75]:
+        - link "Site Map" [ref=e76] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=e77]:
+        - link "Contact Us" [ref=e78] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=e79]: © Parasoft. All rights reserved.
+    - list [ref=e80]:
+      - listitem [ref=e81]: "Visit us at:"
+      - listitem [ref=e82]:
+        - link "www.parasoft.com" [ref=e83] [cursor=pointer]:
+          - /url: http://www.parasoft.com/
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | import { OpenAccountPage } from '../../POM/OpenAccountPage';
+  3  | import { FundTransferPage } from '../../POM/FundTransferPage';
+  4  | import { LoginPage } from '../../POM/LoginPage';
+  5  | import userData from '../../test-data/User.json';
+  6  | 
+  7  | const jsonHeader = { headers: { 'Accept': 'application/json' } };
+  8  | 
+  9  | test.describe('TS-09 Balance Validation Before and After Transfer', () => {
+  10 | 
+  11 |     test('Validate Source Account Debited After Transfer', async ({ page }) => {
+  12 |         const loginPage = new LoginPage(page);
+  13 |         const accountPage = new OpenAccountPage(page);
+  14 |         const transferPage = new FundTransferPage(page);
+  15 |         await loginPage.loginOrRegister(userData);
+  16 | 
+  17 |         await accountPage.clickNewAccount();
+  18 |         await accountPage.openChecking();
+  19 |         const fromAccountId = (await page.locator('#newAccountId').textContent() as string).trim();
+  20 | 
+  21 |         await accountPage.clickNewAccount();
+  22 |         await accountPage.openChecking();
+  23 |         const toAccountId = (await page.locator('#newAccountId').textContent() as string).trim();
+  24 | 
+  25 |         const beforeResp = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
+  26 |         const balanceBefore = (await beforeResp.json()).balance;
+  27 |         console.log('balance before:', balanceBefore);
+  28 | 
+  29 |         await transferPage.goToTransferFunds();
+  30 |         await page.locator('#fromAccountId').selectOption(fromAccountId);
+  31 |         await page.locator('#toAccountId').selectOption(toAccountId);
+  32 |         await transferPage.enterAmount('100');
+  33 |         await transferPage.clickTransfer();
+  34 |         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
+  35 | 
+  36 |         const afterResp = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
+  37 |         const balanceAfter = (await afterResp.json()).balance;
+  38 |         console.log('balance after:', balanceAfter);
+  39 | 
+> 40 |         expect(balanceAfter).toBe(balanceBefore - 100);
+     |                              ^ Error: expect(received).toBe(expected) // Object.is equality
+  41 | 
+  42 |         // await page.screenshot({
+  43 |         //     path: `screenshots/ts-09-test1.png`,
+  44 |         //     fullPage: true
+  45 |         // });
+  46 |     });
+  47 | 
+  48 | });
+  49 | 
+```

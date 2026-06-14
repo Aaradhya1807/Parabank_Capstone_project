@@ -5,9 +5,9 @@ import { LoginPage } from '../../POM/LoginPage';
 import { AccountOverviewPage } from '../../POM/AccountOverviewPage';
 import userData from '../../test-data/User.json';
 
-test.describe('TS-06 Successful Fund Transfer via UI', () => {
+test.describe('TS-06 Fund Transfer UI', () => {
 
-    test('Transfer Money-Valid Amount Between Two Accounts', async ({ page }) => {
+    test('Transfer Valid Amount', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
@@ -34,7 +34,7 @@ test.describe('TS-06 Successful Fund Transfer via UI', () => {
         // });
     });
 
-    test('Transfer Confirmation Page Shows Correct Details', async ({ page }) => {
+    test('Transfer Confirmation Details', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);

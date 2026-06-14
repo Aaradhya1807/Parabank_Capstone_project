@@ -1,6 +1,6 @@
 import { chromium } from '@playwright/test';
 import { RegisterPage } from './POM/Registerpage';
-import * as fs from 'fs';
+import fs from 'fs';
 
 async function globalSetup() {
     const userData = JSON.parse(fs.readFileSync('test-data/User.json', 'utf-8'));

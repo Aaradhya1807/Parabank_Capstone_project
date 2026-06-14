@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-07 Balance Validation Before and After Transfer', () => {
+test.describe('TS-07 Balance After Transfer', () => {
 
-    test('Check Source Account is Debited After Transfer', async ({ page }) => {
+    test('Source Account Debited', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);

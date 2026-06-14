@@ -5,9 +5,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-09 Create Account via UI → Validate via API', () => {
+test.describe('TS-09 UI to API Validation', () => {
 
-    test('Create Account from UI-Check Type and Balance in API', async ({ page }) => {
+    test('Verify Account via API', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         await loginPage.loginOrRegister(userData);

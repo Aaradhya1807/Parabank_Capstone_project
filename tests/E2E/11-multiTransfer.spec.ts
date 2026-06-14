@@ -6,9 +6,9 @@ import userData from '../../test-data/User.json';
 
 const jsonHeader = { headers: { 'Accept': 'application/json' } };
 
-test.describe('TS-11 Multi-Account Fund Transfer Consistency', () => {
+test.describe('TS-11 Multi Transfer Consistency', () => {
 
-    test('Many Transfers in a Row-API Balances Stay Correct', async ({ page }) => {
+    test('Sequential Transfers Balance Check', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const accountPage = new OpenAccountPage(page);
         const transferPage = new FundTransferPage(page);
