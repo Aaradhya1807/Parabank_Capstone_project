@@ -14,10 +14,7 @@ test.describe('TS-03 Successful Account Creation', () => {
 
         await expect(page.locator('#rightPanel')).toContainText('Congratulations');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-03-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-03-test1.png`, fullPage: true });
     });
 
     test('Create Checking Account', async ({ page }) => {
@@ -29,10 +26,7 @@ test.describe('TS-03 Successful Account Creation', () => {
 
         await expect(page.locator('#rightPanel')).toContainText('Congratulations');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-03-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-03-test2.png`, fullPage: true });
     });
 
     test('Account Creation Message', async ({ page }) => {
@@ -45,10 +39,7 @@ test.describe('TS-03 Successful Account Creation', () => {
         await expect(page.locator('#rightPanel')).toContainText('Congratulations');
         await expect(page.locator('#rightPanel')).toContainText('Your new account number');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-03-test3.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-03-test3.png`, fullPage: true });
     });
 
 });

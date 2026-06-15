@@ -26,10 +26,7 @@ test.describe('TS-09 UI to API Validation', () => {
         expect(accountData.balance).toBeGreaterThanOrEqual(0);
         expect(String(accountData.id)).toBe(newAccountId);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-09-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-09-test1.png`, fullPage: true });
     });
 
 });

@@ -12,10 +12,7 @@ test.describe('TS-02 Registration Negative Scenarios', () => {
         await expect(page.locator('body')).toContainText('Last name is required');
         await expect(page.locator('body')).toContainText('Username is required');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-02-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-02-test1.png`, fullPage: true });
     });
 
     test('Password Mismatch Check', async ({ page }) => {
@@ -37,10 +34,7 @@ test.describe('TS-02 Registration Negative Scenarios', () => {
 
         await expect(page.locator('body')).toContainText('Passwords did not match');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-02-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-02-test2.png`, fullPage: true });
     });
 
     test('Duplicate Username Rejected', async ({ page }) => {
@@ -61,10 +55,7 @@ test.describe('TS-02 Registration Negative Scenarios', () => {
 
         await expect(page.locator('body')).toContainText('This username already exists');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-02-test3.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-02-test3.png`, fullPage: true });
     });
 
 });

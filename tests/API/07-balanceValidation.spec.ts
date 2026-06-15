@@ -39,10 +39,7 @@ test.describe('TS-07 Balance After Transfer', () => {
 
         expect(balanceAfter).toBe(balanceBefore - 100);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-07-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-07-test1.png`, fullPage: true });
     });
 
 });

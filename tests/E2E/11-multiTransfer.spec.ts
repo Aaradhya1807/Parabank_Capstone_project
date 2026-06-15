@@ -60,10 +60,7 @@ test.describe('TS-11 Multi Transfer Consistency', () => {
         expect(balanceBAfter - balanceBBefore).toBe(50);
         expect(balanceCAfter - balanceCBefore).toBe(50);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-11-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-11-test1.png`, fullPage: true });
     });
 
 });

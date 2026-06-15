@@ -16,10 +16,7 @@ test.describe('TS-10 API Access Scenarios', () => {
         expect([400, 404]).toContain(response.status());
         expect(responseBody.length).toBeGreaterThan(0);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-10-test3.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-10-test3.png`, fullPage: true });
     });
 
     test('Unauthenticated API Access', async ({ request }) => {

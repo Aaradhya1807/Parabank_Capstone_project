@@ -12,10 +12,7 @@ test.describe('TS-01 Valid User Registration', () => {
 
         await expect(page.locator('#rightPanel')).toContainText('Your account was created successfully');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-01-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-01-test1.png`, fullPage: true });
     });
 
     test('Auto Login Verification', async ({ page }) => {
@@ -27,10 +24,7 @@ test.describe('TS-01 Valid User Registration', () => {
         await expect(page.getByRole('link', { name: 'Log Out' })).toBeVisible();
         await expect(page.getByRole('link', { name: 'Open New Account' })).toBeVisible();
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-01-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-01-test2.png`, fullPage: true });
     });
 
 });

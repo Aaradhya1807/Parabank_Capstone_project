@@ -50,10 +50,7 @@ test.describe('TS-08 Debit Credit Check', () => {
         expect(moneyAdded).toBe(100);
         expect(moneyTaken).toBe(moneyAdded);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-08-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-08-test1.png`, fullPage: true });
     });
 
 });

@@ -8,10 +8,7 @@ test.describe('TS-10 Session Access Scenarios', () => {
         // ParaBank requires authentication — login form must be visible
         await expect(page.locator('input[name="username"]')).toBeVisible();
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-10-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-10-test1.png`, fullPage: true });
     });
 
     test('Login Wrong Credentials', async ({ page }) => {
@@ -22,10 +19,7 @@ test.describe('TS-10 Session Access Scenarios', () => {
 
         await expect(page.locator('body')).toContainText('The username and password could not be verified.');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-10-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-10-test2.png`, fullPage: true });
     });
 
 });

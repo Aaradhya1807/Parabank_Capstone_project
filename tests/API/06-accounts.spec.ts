@@ -25,10 +25,7 @@ test.describe('TS-04 Account API Verification', () => {
         console.log('accounts list:', JSON.stringify(accounts));
         expect(accounts.length).toBeGreaterThan(0);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-04-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-04-test1.png`, fullPage: true });
     });
 
     test('New Account ID is Present in API Response', async ({ page }) => {
@@ -50,10 +47,7 @@ test.describe('TS-04 Account API Verification', () => {
         console.log('accounts response:', responseBody);
         expect(responseBody).toContain(newAccountId);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-04-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-04-test2.png`, fullPage: true });
     });
 
 });
@@ -76,10 +70,7 @@ test.describe('TS-05 Account Type Validation', () => {
         expect(accountData.type).toBe('CHECKING');
         expect(accountData.type).not.toBeNull();
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-05-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-05-test1.png`, fullPage: true });
     });
 
     test('Balance Non Negative Check', async ({ page }) => {
@@ -98,10 +89,7 @@ test.describe('TS-05 Account Type Validation', () => {
         expect(typeof accountData.balance).toBe('number');
         expect(accountData.balance).toBeGreaterThanOrEqual(0);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-05-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-05-test2.png`, fullPage: true });
     });
 
 });

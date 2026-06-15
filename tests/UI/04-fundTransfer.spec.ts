@@ -28,10 +28,7 @@ test.describe('TS-06 Fund Transfer UI', () => {
 
         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-06-test1.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-06-test1.png`, fullPage: true });
     });
 
     test('Transfer Confirmation Details', async ({ page }) => {
@@ -57,10 +54,7 @@ test.describe('TS-06 Fund Transfer UI', () => {
         await expect(page.locator('#rightPanel')).toContainText(fromAccountId);
         await expect(page.locator('#rightPanel')).toContainText(toAccountId);
 
-        // await page.screenshot({
-        //     path: `screenshots/ts-06-test2.png`,
-        //     fullPage: true
-        // });
+        // await page.screenshot({ path: `screenshots/ts-06-test2.png`, fullPage: true });
     });
 
 });
