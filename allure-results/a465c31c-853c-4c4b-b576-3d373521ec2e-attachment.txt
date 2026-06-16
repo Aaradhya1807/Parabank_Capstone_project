@@ -1,0 +1,1 @@
+account data: {"id":31770,"customerId":15764,"type":"CHECKING","balance":90}

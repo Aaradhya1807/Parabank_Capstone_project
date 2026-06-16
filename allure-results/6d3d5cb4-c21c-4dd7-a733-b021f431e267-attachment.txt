@@ -1,0 +1,2 @@
+new account id: 34878
+accounts response: [{"id":34767,"customerId":16319,"type":"CHECKING","balance":425.50},{"id":34878,"customerId":16319,"type":"CHECKING","balance":90.00}]

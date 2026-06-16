@@ -8,7 +8,7 @@
     "state": "Rajasthan",
     "zipCode": "302033",
     "phoneNumber": "9784365061",
-    "ssn": "123456",
+    "ssn": "123456789",
     "password": "A-Aru1807"
   },
   "invalidUser": {
@@ -17,7 +17,7 @@
     "duplicateUsername": "john"
   },
   "loginUser": {
-    "username": "Aaru1781568774135",
+    "username": "Aaru1781570442101",
     "password": "A-Aru1807"
   }
 }

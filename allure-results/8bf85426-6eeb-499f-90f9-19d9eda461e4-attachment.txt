@@ -1,0 +1,1 @@
+accounts list: [{"id":36765,"customerId":16541,"type":"CHECKING","balance":515.5}]

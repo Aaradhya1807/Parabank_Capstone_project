@@ -21,7 +21,7 @@ test.describe('TS-01 Valid User Registration', () => {
         await page.goto(userData.registerUser.url);
         await registerPage.registerUser(userData.registerUser, uniqueUsername);
 
-        await expect(page.getByRole('link', { name: 'Log Out' })).toBeVisible();
+        await expect(page.getByRole('link', { name: 'Log Out' })).toBeVisible({ timeout: 15000 });
         await expect(page.getByRole('link', { name: 'Open New Account' })).toBeVisible();
 
         // await page.screenshot({ path: `screenshots/ts-01-test2.png`, fullPage: true });

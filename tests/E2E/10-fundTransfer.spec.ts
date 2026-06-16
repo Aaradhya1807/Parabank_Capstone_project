@@ -32,9 +32,10 @@ test.describe('TS-08 Debit Credit Check', () => {
         await transferPage.goToTransferFunds();
         await page.locator('#fromAccountId').selectOption(fromAccountId);
         await page.locator('#toAccountId').selectOption(toAccountId);
-        await transferPage.enterAmount('100');
+        await transferPage.enterAmount('50');
         await transferPage.clickTransfer();
         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
+        await page.waitForTimeout(3000);
 
         const fromAfter = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
         const fromBalanceAfter = (await fromAfter.json()).balance;
@@ -46,8 +47,8 @@ test.describe('TS-08 Debit Credit Check', () => {
         const moneyTaken = fromBalanceBefore - fromBalanceAfter;
         const moneyAdded = toBalanceAfter - toBalanceBefore;
 
-        expect(moneyTaken).toBe(100);
-        expect(moneyAdded).toBe(100);
+        expect(moneyTaken).toBe(50);
+        expect(moneyAdded).toBe(50);
         expect(moneyTaken).toBe(moneyAdded);
 
         // await page.screenshot({ path: `screenshots/ts-08-test1.png`, fullPage: true });

@@ -1,0 +1,197 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: E2E\10-fundTransfer.spec.ts >> TS-08 Debit Credit Check >> Debit Equals Credit
+- Location: tests\E2E\10-fundTransfer.spec.ts:11:9
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 100
+Received: 0
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=e5] [cursor=pointer]
+      - paragraph [ref=e6]: Experience the difference
+    - generic [ref=e7]:
+      - list [ref=e8]:
+        - listitem [ref=e9]: Solutions
+        - listitem [ref=e10]:
+          - link "About Us" [ref=e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=e12]:
+          - link "Services" [ref=e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=e14]:
+          - link "Products" [ref=e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=e16]:
+          - link "Locations" [ref=e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=e18]:
+          - link "Admin Page" [ref=e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=e20]:
+        - listitem [ref=e21]:
+          - link "home" [ref=e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=e23]:
+          - link "about" [ref=e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=e25]:
+          - link "contact" [ref=e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Welcome Aaradhya Singh
+        - heading "Account Services" [level=2] [ref=e30]
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - link "Open New Account" [ref=e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=e34]:
+            - link "Accounts Overview" [ref=e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=e36]:
+            - link "Transfer Funds" [ref=e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=e38]:
+            - link "Bill Pay" [ref=e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=e40]:
+            - link "Find Transactions" [ref=e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=e42]:
+            - link "Update Contact Info" [ref=e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=e44]:
+            - link "Request Loan" [ref=e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=e46]:
+            - link "Log Out" [ref=e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=e50]:
+        - heading "Transfer Complete!" [level=1] [ref=e51]
+        - paragraph [ref=e52]: "$100.00 has been transferred from account #32325 to account #32436."
+        - paragraph [ref=e53]: See Account Activity for more details.
+  - generic [ref=e55]:
+    - list [ref=e56]:
+      - listitem [ref=e57]:
+        - link "Home" [ref=e58] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=e59]:
+        - link "About Us" [ref=e60] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=e61]:
+        - link "Services" [ref=e62] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=e63]:
+        - link "Products" [ref=e64] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=e65]:
+        - link "Locations" [ref=e66] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=e67]:
+        - link "Forum" [ref=e68] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=e69]:
+        - link "Site Map" [ref=e70] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=e71]:
+        - link "Contact Us" [ref=e72] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=e73]: © Parasoft. All rights reserved.
+    - list [ref=e74]:
+      - listitem [ref=e75]: "Visit us at:"
+      - listitem [ref=e76]:
+        - link "www.parasoft.com" [ref=e77] [cursor=pointer]:
+          - /url: http://www.parasoft.com/
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | import { OpenAccountPage } from '../../POM/OpenAccountPage';
+  3  | import { FundTransferPage } from '../../POM/FundTransferPage';
+  4  | import { LoginPage } from '../../POM/LoginPage';
+  5  | import userData from '../../test-data/User.json';
+  6  | 
+  7  | const jsonHeader = { headers: { 'Accept': 'application/json' } };
+  8  | 
+  9  | test.describe('TS-08 Debit Credit Check', () => {
+  10 | 
+  11 |     test('Debit Equals Credit', async ({ page }) => {
+  12 |         const loginPage = new LoginPage(page);
+  13 |         const accountPage = new OpenAccountPage(page);
+  14 |         const transferPage = new FundTransferPage(page);
+  15 |         await loginPage.loginOrRegister(userData);
+  16 | 
+  17 |         await accountPage.clickNewAccount();
+  18 |         await accountPage.openChecking();
+  19 |         const fromAccountId = (await page.locator('#newAccountId').textContent() as string).trim();
+  20 | 
+  21 |         await accountPage.clickNewAccount();
+  22 |         await accountPage.openChecking();
+  23 |         const toAccountId = (await page.locator('#newAccountId').textContent() as string).trim();
+  24 | 
+  25 |         const fromBefore = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
+  26 |         const fromBalanceBefore = (await fromBefore.json()).balance;
+  27 |         const toBefore = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${toAccountId}`, jsonHeader);
+  28 |         const toBalanceBefore = (await toBefore.json()).balance;
+  29 |         console.log('from balance before:', fromBalanceBefore);
+  30 |         console.log('to balance before:', toBalanceBefore);
+  31 | 
+  32 |         await transferPage.goToTransferFunds();
+  33 |         await page.locator('#fromAccountId').selectOption(fromAccountId);
+  34 |         await page.locator('#toAccountId').selectOption(toAccountId);
+  35 |         await transferPage.enterAmount('100');
+  36 |         await transferPage.clickTransfer();
+  37 |         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
+  38 | 
+  39 |         const fromAfter = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
+  40 |         const fromBalanceAfter = (await fromAfter.json()).balance;
+  41 |         const toAfter = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${toAccountId}`, jsonHeader);
+  42 |         const toBalanceAfter = (await toAfter.json()).balance;
+  43 |         console.log('from balance after:', fromBalanceAfter);
+  44 |         console.log('to balance after:', toBalanceAfter);
+  45 | 
+  46 |         const moneyTaken = fromBalanceBefore - fromBalanceAfter;
+  47 |         const moneyAdded = toBalanceAfter - toBalanceBefore;
+  48 | 
+> 49 |         expect(moneyTaken).toBe(100);
+     |                            ^ Error: expect(received).toBe(expected) // Object.is equality
+  50 |         expect(moneyAdded).toBe(100);
+  51 |         expect(moneyTaken).toBe(moneyAdded);
+  52 | 
+  53 |         // await page.screenshot({ path: `screenshots/ts-08-test1.png`, fullPage: true });
+  54 |     });
+  55 | 
+  56 | });
+  57 | 
+```

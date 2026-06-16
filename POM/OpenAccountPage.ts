@@ -6,7 +6,7 @@ export class OpenAccountPage {
     async clickNewAccount() {
         await this.page.getByRole('link', { name: 'Open New Account' }).click();
         await expect(this.page.locator('#type')).toBeVisible();
-        await expect(this.page.locator('select').nth(1).locator('option').first()).toBeAttached();
+        await expect(this.page.locator('select').nth(1).locator('option').first()).toBeAttached({ timeout: 15000 });
     }
 
     async openSavings() {

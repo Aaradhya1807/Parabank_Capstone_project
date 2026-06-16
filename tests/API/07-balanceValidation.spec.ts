@@ -29,15 +29,16 @@ test.describe('TS-07 Balance After Transfer', () => {
         await transferPage.goToTransferFunds();
         await page.locator('#fromAccountId').selectOption(fromAccountId);
         await page.locator('#toAccountId').selectOption(toAccountId);
-        await transferPage.enterAmount('100');
+        await transferPage.enterAmount('50');
         await transferPage.clickTransfer();
         await expect(page.locator('#rightPanel')).toContainText('Transfer Complete!');
+        await page.waitForTimeout(3000);
 
         const afterResp = await page.request.get(`https://parabank.parasoft.com/parabank/services/bank/accounts/${fromAccountId}`, jsonHeader);
         const balanceAfter = (await afterResp.json()).balance;
         console.log('balance after:', balanceAfter);
 
-        expect(balanceAfter).toBe(balanceBefore - 100);
+        expect(balanceAfter).toBe(balanceBefore - 50);
 
         // await page.screenshot({ path: `screenshots/ts-07-test1.png`, fullPage: true });
     });
