@@ -1,0 +1,2 @@
+API response time (GET account type): 333ms
+account data: {"id":28329,"customerId":12212,"type":"CHECKING","balance":90}

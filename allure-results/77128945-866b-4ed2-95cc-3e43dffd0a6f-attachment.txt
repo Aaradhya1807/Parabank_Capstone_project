@@ -1,0 +1,4 @@
+API response time (GET balance before): 345ms
+balance before: 90
+API response time (GET balance after): 322ms
+balance after: 90
